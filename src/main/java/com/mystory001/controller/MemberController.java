@@ -32,7 +32,6 @@ public class MemberController {
 	@PostMapping("/insertPro")
 	public String insertPro(MemberDTO memberDTO) {
 		System.out.println("MemberController insertPro()");
-		System.out.println(memberDTO.toString());
 		
 		//회원가입 처리
 		memberService.insertMember(memberDTO);

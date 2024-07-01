@@ -31,7 +31,7 @@ public class MemberDAO {
 	public MemberDTO userCheck(MemberDTO memberDTO) {
 		System.out.println("MemberDAO userCheck()");
 		
-		return sqlSession.selectOne(".userCheck", memberDTO);
+		return sqlSession.selectOne(namespace+".userCheck", memberDTO);
 		//selectOne() : 리턴 결과가 1개
 		//selectList() : List형으로 리턴
 		//selectMap() : Map형으로 리턴
