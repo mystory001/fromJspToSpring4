@@ -1,5 +1,7 @@
 package com.mystory001.service;
 
+import java.sql.Timestamp;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -17,9 +19,18 @@ public class MemberService {
 	private MemberDAO memberDAO;
 	
 	public void insertMember(MemberDTO memberDTO) {
-		System.out.println("MemberService insertMember()");
+		System.out.println("MemberService insertMember()"); 
 		
-		memberDAO.insertMember(memberDTO);
+		memberDTO.setDate(new Timestamp(System.currentTimeMillis())); //가입날짜 설정
+		
+		memberDAO.insertMember(memberDTO); //insertMember()메소드 호출
+	}
+
+	public MemberDTO userCheck(MemberDTO memberDTO) {
+		System.out.println("MemberService userCheck()");
+		
+		//userCheck 메소드 호출
+		return memberDAO.userCheck(memberDTO);
 	}
 
 }
