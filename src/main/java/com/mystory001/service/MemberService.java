@@ -1,6 +1,7 @@
 package com.mystory001.service;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -32,5 +33,27 @@ public class MemberService {
 		//userCheck 메소드 호출
 		return memberDAO.userCheck(memberDTO);
 	}
+
+	public MemberDTO getMember(String id) {
+		System.out.println("MemberService getMember()");
+		return memberDAO.getMember(id);
+	}
+
+	public void updateMember(MemberDTO memberDTO) {
+		System.out.println("MemberService updateMember()");
+		memberDAO.updateMember(memberDTO);
+	}
+
+	public void deleteMember(MemberDTO memberDTO) {
+		System.out.println("MemberService deleteMember()");
+		memberDAO.deleteMember(memberDTO);
+	}
+
+	public List<MemberDTO> getMemberList() {
+		System.out.println("MemberService getMemberList()");
+		return memberDAO.getMemberList();
+	}
+	
+	
 
 }

@@ -1,5 +1,7 @@
 package com.mystory001.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -37,5 +39,24 @@ public class MemberDAO {
 		//selectMap() : Map형으로 리턴
 	}
 
+	public MemberDTO getMember(String id) {
+		System.out.println("MemberDAO getMember()");
+		return sqlSession.selectOne(namespace+".getMember", id);
+	}
+
+	public void updateMember(MemberDTO memberDTO) {
+		System.out.println("MemberDAO updateMember()");
+		sqlSession.update(namespace+".updateMember", memberDTO);
+	}
+
+	public void deleteMember(MemberDTO memberDTO) {
+		System.out.println("MemberDAO deleteMember()");
+		sqlSession.delete(namespace+".deleteMember", memberDTO);
+	}
+
+	public List<MemberDTO> getMemberList() {
+		System.out.println("MemberDAO getMemberList()");
+		return sqlSession.selectList(namespace+".getMemberList");
+	}
 
 }
